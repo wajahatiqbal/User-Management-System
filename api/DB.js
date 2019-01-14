@@ -1,3 +1,3 @@
 module.exports = {
-    DB: 'mongodb://localhost:27017/user-react-management'
+    DB: process.env.MONGO_URL || 'mongodb://localhost:27017/user-react-management'
 }

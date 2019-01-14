@@ -1,0 +1,10 @@
+{
+  "apps" : [{
+    "name"        : "react-app",
+    "script"      : "npm",
+    "args": "start"
+  },{
+    "name"       : "api-app",
+    "script"     : "./api/server.js"
+  }]
+}

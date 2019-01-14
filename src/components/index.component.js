@@ -34,10 +34,7 @@ export default class Index extends Component {
         console.log(this.state.operator)
         console.log(this.state.age)
         e.preventDefault();
-        const obj = {
-            age : this.state.age,
-            operator : this.state.operator
-        }
+        
 
         
         axios.get(`http://localhost:4000/user/filter?age=${this.state.age}&operator=${this.state.operator}`)
