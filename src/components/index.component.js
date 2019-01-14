@@ -113,7 +113,7 @@ export default class Index extends Component {
                 <tr>
                     <th>ID</th>
                     <th>Person</th>
-                    <th onClick={this.onClickAge} >Age⇵</th>
+                    <th onClick={this.onClickAge} >Age</th>
                     <th>Salary</th>
                     <th>Address</th>
                     <th colSpan="2">Action</th>
