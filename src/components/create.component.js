@@ -56,7 +56,7 @@ export default class Create extends Component {
             person_name: this.state.person_name,
             person_age: this.state.person_age,
             person_salary: this.state.person_salary,
-            person_address: this.person_address
+            person_address: this.state.person_address
         };
         axios.post('http://localhost:4000/user/add', obj)
             .then(res => console.log(res.data));

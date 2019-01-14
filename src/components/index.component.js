@@ -13,12 +13,20 @@ export default class Index extends Component {
         };
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleFieldChange = this.handleFieldChange.bind(this)
+        this.onClickAge = this.onClickAge.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(e){
         this.setState({
             operator: e.target.value
+        })
+    }
+
+    handleFieldChange(e){
+        this.setState({
+            age: e.target.value
         })
     }
 
@@ -32,20 +40,23 @@ export default class Index extends Component {
         }
 
         
-        axios.get('http://localhost:4000/user/filter', {
-
-            params: {
-                age: this.state.age,
-                operator: this.age.operator
-            }
-
-        })
+        axios.get(`http://localhost:4000/user/filter?age=${this.state.age}&operator=${this.state.operator}`)
         .then(response => {
           this.setState({ user: response.data });
         })
         .catch(function (error) {
           console.log(error);
         })
+    }
+
+    onClickAge(e){
+        axios.get('http://localhost:4000/user/sort')
+        .then(response => {
+            this.setState({ user: response.data });
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
     }
 
 
@@ -93,7 +104,7 @@ export default class Index extends Component {
                         <input type="text" 
                         style={{marginLeft: 20}} 
                         value={this.state.value} 
-                        onChange={this.handleChange} />
+                        onChange={this.handleFieldChange} />
                     </label>
                     <input type="submit" value="Submit" style={{marginLeft: 20, marginBottom: 5}} className= "btn btn-primary" />
                     
@@ -105,7 +116,7 @@ export default class Index extends Component {
                 <tr>
                     <th>ID</th>
                     <th>Person</th>
-                    <th>Age</th>
+                    <th onClick={this.onClickAge}>Age</th>
                     <th>Salary</th>
                     <th>Address</th>
                     <th colSpan="2">Action</th>
