@@ -3,6 +3,7 @@ A management system which has it's front-end implemented in ReactJs and uses Mon
 
 # Installation
 To install run following command in root directory of the project.
+
 `install.sh`
 
 # Actions
